@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-spring-boot-app
+spec:
+  replicas: 2  # Number of replicas (pods) of your application
+  selector:
+    matchLabels:
+      app: my-spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: my-spring-boot-app
+    spec:
+      containers:
+      - name: my-spring-boot-app
+        image: localhost:5000/my-spring-boot-app:latest  # Replace with your image name
+        ports:
+        - containerPort: 8080  # Replace with your application port
