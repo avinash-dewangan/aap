@@ -5,17 +5,25 @@
 * inside doecker go to setting and the click kubernates and enable kubernates
 
 
-## create image
+## Create Dockerfile
+
+
+## create image command
 docker build -t your-node-app .
+
 ### docker process command
-docker ps                                             
+docker ps
+
 ### docker list of images
 docker images
 
 ## push the image in local directory
+
+## one time run only 
 * docker run -d -p 5000:5000 --restart=always --name registry registry:2
-* docker tag your-image-name:tag localhost:5000/your-image-name:tag
-* docker push localhost:5000/your-image-name:tag
+## per image run
+* docker tag app:latest localhost:5000/app:latest
+* docker push localhost:5000/app:latest
 
 
 
@@ -44,6 +52,7 @@ kubectl get service
 kubectl get deployments
 
 ## service scale
+###T o stop a deployment in Kubernetes, you typically scale down the number of replicas to zero
 kubectl scale deployment node-app --replicas=0
 
 # Delete
@@ -51,3 +60,6 @@ kubectl scale deployment node-app --replicas=0
 * kubectl delete services --all
 * kubectl delete pods --all
 * kubectl delete deployment --all
+
+## pod logs
+kubectl logs <pod-name>
